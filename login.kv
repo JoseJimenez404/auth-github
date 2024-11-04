@@ -1,0 +1,29 @@
+# login.kv
+BoxLayout:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    Label:
+    	pos_hint: {"center_x": .5, "center_y": .70} #ancho / alto
+        id: welcome_label
+        text: 'Por favor, inicia sesión con GitHub'
+        font_size: '15sp'
+        halign: 'center'
+
+    Button:
+        id: login_button  # Agregar id al botón
+		text: "Ingresar"
+		size_hint: .66, .065
+		pos_hint: {"center_x": .5, "center_y": .50}
+		background_color: 0,0,0,0
+		on_release:
+            app.login_with_github()  # Llamada a la función de val
+			
+		canvas.before:
+			Color:
+				rgb: rgba(52,0,231,255)
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [5]
